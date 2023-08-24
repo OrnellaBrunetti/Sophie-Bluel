@@ -316,6 +316,9 @@ function ouvrirModale2() {
   document.body.classList.add("modal-open"); // Ajout de la classe pour empêcher le défilement de la page
 }
 
+// Ecouteur d'évènement ouverture modale 2 ajout photo
+document.getElementById("validation").addEventListener("click", ouvrirModale2);
+
 // Écouteur d'événement au bouton "retour"
 document.getElementById("retour").addEventListener("click", ramenerModale1AuPremierPlan);
 
@@ -393,6 +396,9 @@ function resetVisualElements() {
   document.getElementById('icone-image').style.display = "block";
   document.getElementById('bouton-ajouter-photo').style.display = "block";
   document.querySelector(".format-img").style.display = "block";
+
+    // Remettre le bouton "Valider" à sa couleur initiale
+    valider.classList.remove("bouton-validation-valide");
 }
 
 
@@ -617,10 +623,10 @@ function updateBoutonColor() {
     }
 }
 
-// Attacher des écouteurs d'événements pour vérifier la validité du formulaire chaque fois qu'une valeur change
-titre.addEventListener("input", updateBoutonColor);
-categorie.addEventListener("change", updateBoutonColor);
-selectionFichier.addEventListener("change", updateBoutonColor);
+//écouteurs d'événements pour vérifier la validité du formulaire chaque fois qu'une valeur change
+titre.addEventListener('input', updateBoutonColor);
+categorie.addEventListener('change', updateBoutonColor);
+selectionFichier.addEventListener('change', updateBoutonColor);
 
 // Initialisation: vérifier immédiatement au chargement de la page (au cas où des valeurs seraient préremplies)
 updateBoutonColor();
