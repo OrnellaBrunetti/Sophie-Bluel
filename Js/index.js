@@ -358,21 +358,37 @@ function fermerModale2() {
 
     // Fermer également la modale 1 (si ouverte)
     fermerModale1();
+  
+    const errorMessage = document.getElementById("modal2ErrorMessage");
+if (errorMessage) {
+    errorMessage.textContent = "";
+}
   }
 }
 
 // Associer la fonction de fermeture à l'icône "fermer" de la modale 2
 var iconeFermerModale2 = document.getElementsByClassName('fermer-modale2')[0];
-if (iconeFermerModale2) {
-  iconeFermerModale2.addEventListener('click', function () {
-    // Réinitialiser le formulaire en vidant les champs
-    var formulaireAjoutTravail = document.getElementsByClassName('formulaire-ajout')[0];
-    if (formulaireAjoutTravail) {
-      formulaireAjoutTravail.reset();
-    }
 
-    fermerModale2();
-  });
+if (iconeFermerModale2) {
+    iconeFermerModale2.addEventListener('click', function () {
+        // Réinitialiser le formulaire en vidant les champs
+        var formulaireAjoutTravail = document.getElementsByClassName('formulaire-ajout')[0];
+        if (formulaireAjoutTravail) {
+            formulaireAjoutTravail.reset();
+        }
+
+        // Réinitialiser les éléments visuels
+        resetVisualElements();
+
+        // Effacer le message d'erreur
+        const errorMessage = document.getElementById("modal2ErrorMessage");
+        if (errorMessage) {
+            errorMessage.textContent = "";
+        }
+
+        // Fermer la modale 2
+        fermerModale2();
+    });
 }
 
 // Réinitializer le formulaire quand on ferme la modale
@@ -400,7 +416,6 @@ function resetVisualElements() {
     // Remettre le bouton "Valider" à sa couleur initiale
     valider.classList.remove("bouton-validation-valide");
 }
-
 
 
 ////     AJOUTER UN TRAVAIL     ////
@@ -492,9 +507,11 @@ function validationFormulaire() {
   if (imageValidationResult !== true) {
     errorMessage.textContent = imageValidationResult;
     errorMessage.style.color = "red";
+    resetVisualElements(); // Réinitialiser les éléments visuels après avoir défini le message d'erreur.
+    
     return;
   }
-
+ 
   // Validation du titre
   if (titre === "") {
     errorMessage.textContent = "Veuillez définir un titre.";
