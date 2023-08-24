@@ -10,6 +10,9 @@ let token = localStorage.getItem("token");
 // Afficher le token dans la console (à des fins de débogage)
 console.log(token);
 
+// à récuperer pour vider le form d'ajout
+const form = document.querySelector('.formulaire-ajout');
+
 // Fonction pour charger les travaux depuis l'API
 function loadWorks() {
   // Utilisation de l'API pour récupérer les travaux
