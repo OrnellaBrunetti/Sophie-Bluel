@@ -1,0 +1,876 @@
+/* Reset CSS */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* End reset CSS */
+
+body {
+  max-width: 1140px;
+  margin: auto;
+  font-family: 'Work Sans';
+  font-size: 14px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 80px 0;
+}
+
+section {
+  margin: 50px 0;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Syne';
+  font-size: 22px;
+  font-weight: 800;
+  color: #B1663C;
+}
+
+h1>span {
+  font-family: 'Work Sans';
+  font-size: 10px;
+  margin-top: 5px;
+  letter-spacing: 0.1em;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+nav li {
+  padding: 0 10px;
+  font-size: 1.2em;
+}
+
+nav li a {
+  text-decoration: none;
+  color: black;
+}
+
+nav li a:hover {
+  color: #B1663C;
+}
+
+li:hover {
+  color: #B1663C;
+}
+
+#introduction {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.h2 {
+  font-family: 'Syne';
+  font-weight: 700;
+  font-size: 30px;
+  color: #1D6154;
+}
+
+#introduction figure {
+  flex: 1;
+}
+
+#introduction img {
+  display: block;
+  margin: auto;
+  width: 85%;
+  height: 85%;
+  margin-bottom: 20px;
+}
+
+.change-profil {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 85%;
+  font-style: 'Work Sans';
+  font-size: 14px;
+}
+
+.modify {
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+#introduction article {
+  flex: 1;
+  padding: 0 50px 0 30px;
+}
+
+#introduction h2 {
+  margin-bottom: 30px;
+}
+
+.article {
+  font-family: 'Work Sans';
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 10px;
+  margin-right: 90px;
+  color: #3D3D3D;
+}
+
+#portfolio {
+  margin: 90px 72px;
+}
+
+#portfolio h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 37px;
+  margin-bottom: 80px;
+}
+
+.filter-buttons button {
+  font-family: 'Syne', sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  min-width: 100px;
+  color: #1D6154;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #1D6154 solid 1px;
+  border-radius: 20px;
+  margin: 50px 8px 0 6px;
+  padding: 9px 13px;
+  background-color: white;
+}
+
+.filter-buttons button.active {
+  background-color: #1D6154;
+  color: white;
+}
+
+.gallery img {
+  width: 100%;
+}
+
+#contact {
+  width: 50%;
+  margin: auto;
+}
+
+#contact>* {
+  text-align: center;
+}
+
+#contact h2 {
+  color: #1D6154;
+  margin-bottom: 20px;
+  font-family: 'Syne';
+  font-size: 30px;
+  line-height: 36px;
+}
+
+#contact form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact label {
+  margin: 2em 0 1em 0;
+}
+
+#contact textarea {
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+input[type="submit"] {
+  font-family: 'Syne';
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2em;
+}
+
+.footer {
+  font-family: 'Work Sans';
+  line-height: 17px;
+  font-size: 13px;
+}
+
+/* Login */
+
+header a {
+  text-decoration: none;
+}
+
+/* Modif header list */
+header li:nth-child(3) {
+  font-weight: bolder;
+}
+
+header nav img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Fin */
+
+#login {
+  text-align: center;
+  width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#login form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#login input {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#login label {
+  margin: 2em 0 1em 0;
+}
+
+#login textarea {
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+input[type="submit"] {
+  font-family: 'Syne';
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
+}
+
+#login div a {
+  color: black;
+}
+
+.button-click-effect {
+  transition: transform 0.3s;
+}
+
+.button-click-effect:active {
+  transform: scale(0.9);
+}
+
+.error-message {
+  color: red;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#editModeBanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+}
+
+#editModeBanner .logo-top {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+#editModeBanner #editModeBtn {
+  margin-right: 10px;
+}
+
+#editModeBanner button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#editModeBanner button#publishChangesBtn {
+  background-color: #fff;
+  color: #000;
+  border-radius: 60px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 13px;
+}
+
+/* Style pour la fenêtre modale */
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Noir semi-transparent */
+  display: none;
+  /* Initialement masqué */
+}
+
+/* Modale 1 */
+.modale {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 600px;
+  margin-top: -290px;
+  /* La moitié de la hauteur de la modale */
+  margin-left: -270px;
+  /* La moitié de la largeur de la modale */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  padding: 30px 15px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 80vh;
+  /* Limitez la hauteur de la modale pour éviter le défilement */
+  overflow-y: auto;
+  /* Ajoutez une barre de défilement verticale si nécessaire */
+}
+
+/* Ajout des styles pour la classe "modal-open" */
+body.modal-open {
+  overflow: hidden;
+  /* Empêche le défilement lorsque la modale est ouverte */
+}
+
+.modal-open #overlay {
+  display: block;
+  /* Affiche l'overlay lorsque la modale est ouverte */
+}
+
+.modal-open #modal1 {
+  display: flex;
+  /* Affiche la modale lorsque la modale 1 est ouverte */
+  z-index: 9999;
+  /* Place la modale 1 au-dessus de tout le reste */
+}
+
+.modal-open #modal1 .contenu-modale {
+  background-color: rgba(255, 255, 255, 0.95);
+  /* Couleur de fond semi-transparente pour la modale 1 */
+}
+
+/* Contenu de la modale en colonne */
+.contenu-modale {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.contenu-modale>h2 {
+  margin-bottom: 40px;
+  font-size: 25px;
+  font-weight: 300;
+  color: #000;
+}
+
+/* Bouton fermer en haut à droite */
+.fermeture-modale {
+  align-self: flex-end;
+}
+
+/* Style pour le bouton fermer */
+.fermeture-modale button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  outline: none;
+}
+
+
+.contenu-colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Conteneur des miniatures en ligne */
+.affichage-miniature {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.miniature {
+  width: 70px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 5px;
+  /* Espace de 5px entre les colonnes */
+}
+
+
+/* Ajout des styles pour les rangées de miniatures */
+.miniature-row {
+  display: flex;
+  justify-content: flex-start;
+  /* Aligner toutes les rangées à gauche */
+  margin-bottom: 20px;
+  /* Espace de 20px entre les lignes */
+}
+
+.miniature-row .miniature {
+  width: calc(20% - 10px);
+  /* Ajustez la largeur selon vos besoins (5 miniatures par rangée) */
+  height: 100px;
+  /* Ajustez la hauteur selon vos besoins */
+  object-fit: cover;
+  /* Pour éviter les déformations de l'image */
+  margin: 0;
+  /* Ajustez l'espace entre les miniatures */
+  cursor: pointer;
+}
+
+.miniature-container {
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 14px;
+  color: red;
+  cursor: pointer;
+  background-color: black;
+  padding: 4px;
+  color: white;
+  border-radius: 2px;
+}
+
+.separation-line {
+  height: 1px;
+  background-color: #B3B3B3;
+  margin: 20px 0;
+  width: 375px;
+}
+
+#validation {
+  background-color: #1D6154;
+  color: white;
+  border-radius: 60px;
+  width: 200px;
+  height: 35px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s;
+  line-height: 17px;
+  border: none;
+}
+
+#validation:active {
+  transform: scale(0.9);
+}
+
+.ajouter-supprimer>a {
+  color: #D65353;
+  margin-top: 24px;
+  font-size: 12px;
+  font-weight: 100;
+  font-family: 'Syne', sans-serif;
+  line-height: 17px;
+}
+
+/* MODALE 2 */
+
+#modale2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 600px;
+  margin-top: -290px;
+  /* La moitié de la hauteur de la modale */
+  margin-left: -270px;
+  /* La moitié de la largeur de la modale */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  padding: 30px 15px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 80vh;
+  /* Limitez la hauteur de la modale pour éviter le défilement */
+  overflow-y: auto;
+  /* Ajoutez une barre de défilement verticale si nécessaire */
+}
+
+.contenu-modale {
+  height: auto;
+}
+
+.contenu-modale2 {
+  width: 100%;
+  height: auto;
+}
+
+.modal-open #modale2 {
+  display: flex;
+  /* Affiche la modale lorsque la modale 2 est ouverte */
+  z-index: 9999;
+  /* Place la modale 2 au-dessus de tout le reste */
+}
+
+.modal-open #modale2 .contenu-modale {
+  background-color: rgba(255, 255, 255, 0.95);
+  /* Couleur de fond semi-transparente pour la modale 2 */
+}
+
+.retour-fermer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bouton-retour,
+.bouton-fermer {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  outline: none;
+  padding: 5px;
+}
+
+#modale2 h2 {
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  font-family: 'Work Sans';
+  font-size: 22px;
+  line-height: 30.5px;
+}
+
+#section-ajout {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* Centrage horizontal */
+  background-color: #E8F1F6;
+  /* Fond bleu clair */
+  width: 390px;
+  height: 170px;
+  border-radius: 3px;
+  align-items: center;
+  overflow: hidden;
+  max-width: 420px;
+  /* Largeur maximale du conteneur */
+  text-align: center;
+  /* Centre le contenu à l'intérieur du conteneur */
+  padding: 20px;
+  /* Espacement autour du contenu */
+  box-sizing: border-box;
+  /* Inclut les bordures dans les dimensions */
+  justify-content: center;
+}
+
+
+.imagePrevisualise {
+  position: absolute;
+  top: 128px;
+  left: 200px;
+  width: 129px;
+  height: 170px;
+}
+
+#icone-image {
+  font-size: 58px;
+  color: #B9C5CC;
+  margin-bottom: 15px;
+}
+
+.label-champs {
+  flex-direction: column;
+  display: flex;
+  margin: 22px 11%;
+}
+
+.champs-formulaire {
+  margin-top: 10px;
+  height: 45px;
+  border: none;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+.separation2 {
+  width: 390px;
+  margin-left: 55px;
+  margin-top: 35px;
+}
+
+#selectioner {
+  background-color: #CBD6DC;
+  color: #306685;
+  width: 160px;
+  height: 35px;
+  border-radius: 50px;
+  font-family: 'Work Sans';
+  font-weight: 100;
+  font-size: 14px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  /* Ajoute une transition au changement de taille */
+}
+
+#bouton-ajouter-photo {
+  background-color: #CBD6DC;
+  color: #306685;
+  width: 145px;
+  height: 45px;
+  padding: 3%;
+  border-radius: 50px;
+  font-family: 'Work Sans';
+  font-weight: 100;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  /* Ajoute une transition au changement de taille */
+}
+
+#bouton-ajouter-photo:active {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.format-img {
+  font-size: 11px;
+  font-family: 'Work Sans';
+}
+
+.bouton-validation {
+  font-size: 14px;
+  width: 237px;
+  height: 36px;
+  border-radius: 60px;
+  background-color: #A7A7A7;
+  color: white;
+  text-align: center;
+  line-height: 36px;
+  cursor: pointer;
+  border: none;
+}
+
+.validation-2 {
+  margin-left: 25%;
+  margin-top: 10px;
+}
+
+.bouton-validation-valide {
+  background-color:#1D6154;
+  color: white; 
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sophie Bluel - Architecte d'intérieur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+        rel="stylesheet">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://kit.fontawesome.com/cb36e2f375.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="overlay"></div>
+    <div id="editModeBanner" class="hidden">
+        <i class="fa-regular fa-pen-to-square logo-top"></i>
+        <div id="editModeBtn">Mode édition</div>
+        <button id="publishChangesBtn">Publier les changements</button>
+    </div>
+    <header>
+        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+        <nav>
+            <ul>
+                <li>projets</li>
+                <li>contact</li>
+                <li><a href="login.html" id="loginBtn">login</a></li>
+                <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction">
+            <figure>
+                <img src="./assets/images/sophie-bluel.png" alt="">
+				<div class="change-profil">
+				<i class="far fa-pen-to-square" id="editIcon"></i>
+				<p class="modify">modifier</p>
+				</div>
+            </figure>
+            <article>
+                <h2 class="h2">Designer d'espace</h2>
+                <p class="article">Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+                <p class="article">Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+                <p class="article">En cas de besoin, une équipe pluridisciplinaire peut être constituée : architecte DPLG, décorateur(trice)</p>
+            </article>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="h2">Mes Projets <i class="far fa-pen-to-square open" id="editIcon"></i></h2>
+
+            <div class="filter-buttons hidden">
+                <button class="active">Tous</button>
+                <button>Objets</button>
+                <button>Appartements</button>
+                <button>Hôtels & Restaurants</button>
+            </div>
+
+            <div class="gallery"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Vous avez un projet ? Discutons-en !</p>
+            <form action="#" method="post">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" cols="30" rows="10"></textarea>
+                <input type="submit" value="Envoyer">
+            </form>
+        </section>
+        <!-- Fenêtre modale -->
+        <div class="modales">
+            <!--modale 1-->
+            <div id="modal1" class="modale" aria-hidden="true" role="dialog" aria-labelledby="titre-modale1"
+   			 style="display: none">
+    
+                <div class="contenu-modale" id="contenue-modale1">
+                    <div class="fermeture-modale">
+                        <button type="submit" class="bouton-fermer" id="fermer-modale1">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <h2 id="titre-modale1">Galerie photo</h2>
+                    <div class="affichage-miniature contenu-colonne">
+                    </div>
+					<div class="separation-line"></div>
+                    <div class="ajouter-supprimer contenu-colonne">
+                        <!--ouverture modale2-->
+                        <button onclick="ouvrirModale2()" type="submit" id="validation">Ajouter une photo</button>
+                        <a id="supprimer">Supprimer la galerie</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!--modale 2-->
+            <div id="modale2" aria-hidden="true" role="dialog" style="display:none;">
+                <div class="contenu-modale2">
+                    <div class="retour-fermer">
+						<button class="bouton-retour" id="retour">
+							<i class="fa-solid fa-arrow-left"></i>
+						</button>
+						<button type="file" class="bouton-fermer" id="fermer-modale2" accept=accept=".png, .jpg, .jpeg">
+							<i class="fa-solid fa-xmark"></i>
+						</button>
+					</div>
+                <h2>Ajout photo</h2>
+                <form class="formulaire-ajout" method="post" enctype="multipart/form-data">
+
+                    <div id="section-ajout">
+
+                        <!-- Prévisualisation de l'image importée-->
+
+                        <div id="image-prev"></div>
+                        <i class="fa-regular fa-image" id="icone-image"></i>
+                        <label for="selectioner" id="bouton-ajouter-photo"> + Ajouter photo</label>
+                        <input type="file" id="selectioner" class="hidden" accept="*/*" required><br>
+                        <!--"image/jpg, image/png"  ce qu'il faut normalement écrire dans accept-->
+                        <p class="format-img">jpg, png. 4mo max</p>
+
+                    </div>
+
+                    <div class="label-champs">
+                        <label for="titre" class="label-formulaire"><b>Titre</b></label>
+                        <input id="titre" type="text" name="titre" class="champs-formulaire" required>
+                    </div>
+                    <div class="label-champs">
+                        <label for="categorie" id="champs-titre" class="label-formulaire"><b>Categorie</b></label>
+                        <select name="categorie" id="liste-categories" class="champs-formulaire" required>
+                            <option value="Champs-selection"></option>
+                            <option value="1">Objets</option>
+                            <option value="2">Appartements</option>
+                            <option value="3">Hotel & Restaurants</option>
+                        </select>
+                    </div>
+					<div class="separation-line separation2"></div>
+                    <input type="button" name="Valider" id="valider-modale2" class="bouton-validation validation-2" value="Valider">
+					<div id="modal2ErrorMessage" class="error-message"></div>
+
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li class="footer">Mentions Légales</li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

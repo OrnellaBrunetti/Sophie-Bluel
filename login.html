@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sophie Bluel - Architecte d'intérieur</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+    <h1>Sophie Bluel<span>ARCHITECTE D'INTÉRIEUR</span></h1>
+    </a>
+    <nav>
+      <ul>
+        <li>projets</li>
+        <li>contact</li>
+        <li>login</li>
+        <li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="login">
+      <h2 class="h2">Log In</h2>
+      <form class="form" action="#" method="post">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Email"> <!-- Champ d'entrée pour l'e-mail -->
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" placeholder="Mot de passe">
+        <!-- Champ d'entrée pour le mot de passe -->
+        <div class="error-message"></div> <!-- div pour afficher les messages d'erreur -->
+        <input type="submit" value="Se connecter" class="button-click-effect"> <!-- Bouton submit formulaire -->
+      </form>
+      <div>
+        <div class="error-message hidden"></div>
+        <a href="#">Mot de passe oublié ?</a> <!-- Lien pour réinitialiser le mot de passe -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <nav>
+      <ul>
+        <li>Mentions Légales</li>
+      </ul>
+    </nav>
+  </footer>
+  <script src="js/login.js"></script>
+</body>
+
+</html>
