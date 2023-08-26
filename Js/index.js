@@ -7,7 +7,7 @@ let works = [];
 // Récupération du token depuis le localStorage
 let token = localStorage.getItem("token");
 
-// Afficher le token dans la console (à des fins de débogage)
+// Afficher le token dans la console 
 console.log(token);
 
 // à récuperer pour vider le form d'ajout
@@ -150,7 +150,7 @@ function checkLoggedInUser() {
     // Affichage de la bannière en mode édition
     editModeBanner.classList.remove("hidden");
 
-    // Ajout d'un écouteur d'événement pour TOUS les icônes d'édition
+    // Ajout d'un écouteur d'événement pour l'icône d'édition
     const editIcons = document.querySelectorAll('.far.fa-pen-to-square.open');
     editIcons.forEach(icon => {
       icon.addEventListener('click', ouvrirModale1);
@@ -182,6 +182,8 @@ function checkLoggedInUser() {
 checkLoggedInUser();
 
 /////    MODALES   /////
+
+//styles divers
 
 // Sélection de l'élément de superposition des modales
 const overlay = document.querySelector(".modales");
@@ -274,6 +276,8 @@ function loadWorksInModal(works) {
   });
 }
 
+//Ouvertures, fermetures et navigation entre les modales
+
 // Fonction pour ouvrir la première modale (pour gérer les travaux)
 function ouvrirModale1() {
   const modale1 = document.getElementById("modal1");
@@ -281,7 +285,7 @@ function ouvrirModale1() {
   modale1.removeAttribute("aria-hidden");
   modale1.setAttribute("aria-modal", true);
 
-  // Ajout de la classe "modal-open" au <body> pour empêcher le défilement de la page
+  // Ajout de la classe "modal-open" au <body> pour mettre en avant la modale
   document.body.classList.add("modal-open");
 
   // Récupération du conteneur des miniatures de la galerie
@@ -306,7 +310,7 @@ function fermerModale1() {
   modale1.removeAttribute("aria-hidden");
   modale1.setAttribute("aria-modal", true);
 
-  // Suppression de la classe "modal-open" du <body> pour rétablir le défilement de la page
+  // Suppression de la classe "modal-open" du <body> pour rétablir le style d'origine
   document.body.classList.remove("modal-open");
 }
 
@@ -358,11 +362,11 @@ function fermerModale2() {
 
     // Fermer également la modale 1 (si ouverte)
     fermerModale1();
-  
+
     const errorMessage = document.getElementById("modal2ErrorMessage");
-if (errorMessage) {
-    errorMessage.textContent = "";
-}
+    if (errorMessage) {
+      errorMessage.textContent = "";
+    }
   }
 }
 
@@ -370,38 +374,38 @@ if (errorMessage) {
 var iconeFermerModale2 = document.getElementsByClassName('fermer-modale2')[0];
 
 if (iconeFermerModale2) {
-    iconeFermerModale2.addEventListener('click', function () {
-        // Réinitialiser le formulaire en vidant les champs
-        var formulaireAjoutTravail = document.getElementsByClassName('formulaire-ajout')[0];
-        if (formulaireAjoutTravail) {
-            formulaireAjoutTravail.reset();
-        }
+  iconeFermerModale2.addEventListener('click', function () {
+    // Réinitialiser le formulaire en vidant les champs
+    var formulaireAjoutTravail = document.getElementsByClassName('formulaire-ajout')[0];
+    if (formulaireAjoutTravail) {
+      formulaireAjoutTravail.reset();
+    }
 
-        // Réinitialiser les éléments visuels
-        resetVisualElements();
+    // Réinitialiser les éléments visuels
+    resetVisualElements();
 
-        // Effacer le message d'erreur
-        const errorMessage = document.getElementById("modal2ErrorMessage");
-        if (errorMessage) {
-            errorMessage.textContent = "";
-        }
+    // Effacer le message d'erreur
+    const errorMessage = document.getElementById("modal2ErrorMessage");
+    if (errorMessage) {
+      errorMessage.textContent = "";
+    }
 
-        // Fermer la modale 2
-        fermerModale2();
-    });
+    // Fermer la modale 2
+    fermerModale2();
+  });
 }
 
 // Réinitializer le formulaire quand on ferme la modale
 
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('fermer-modale2').addEventListener('click', function() {
-      // Réinitialisez le formulaire
-      document.querySelector('.formulaire-ajout').reset();
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('fermer-modale2').addEventListener('click', function () {
+    // Réinitialisez le formulaire
+    document.querySelector('.formulaire-ajout').reset();
 
-      // Supprimez la prévisualisation de l'image, si elle existe
-      document.getElementById('image-prev').innerHTML = "";
-      document.getElementById('icone-image').style.display = "block";
-      resetVisualElements();
+    // Supprimez la prévisualisation de l'image, si elle existe
+    document.getElementById('image-prev').innerHTML = "";
+    document.getElementById('icone-image').style.display = "block";
+    resetVisualElements();
   });
 });
 
@@ -413,8 +417,8 @@ function resetVisualElements() {
   document.getElementById('bouton-ajouter-photo').style.display = "block";
   document.querySelector(".format-img").style.display = "block";
 
-    // Remettre le bouton "Valider" à sa couleur initiale
-    valider.classList.remove("bouton-validation-valide");
+  // Remettre le bouton "Valider" à sa couleur initiale
+  valider.classList.remove("bouton-validation-valide");
 }
 
 
@@ -508,10 +512,10 @@ function validationFormulaire() {
     errorMessage.textContent = imageValidationResult;
     errorMessage.style.color = "red";
     resetVisualElements(); // Réinitialiser les éléments visuels après avoir défini le message d'erreur.
-    
+
     return;
   }
- 
+
   // Validation du titre
   if (titre === "") {
     errorMessage.textContent = "Veuillez définir un titre.";
@@ -525,7 +529,7 @@ function validationFormulaire() {
     errorMessage.style.color = "red";
     return;
   }
-  
+
   // Si tout est correct, efface le message d'erreur
   errorMessage.textContent = "";
 
@@ -619,25 +623,25 @@ const selectionFichier = document.getElementById("selectioner");
 
 // Fonction pour vérifier si tous les champs du formulaire sont remplis
 function verifierFormulaire() {
-    // Vérifiez que le titre n'est pas vide
-    if (titre.value.trim() === "") return false;
-    
-    // Vérifiez que la catégorie est sélectionnée
-    if (categorie.value === "Champs-selection") return false;
-    
-    // Vérifiez qu'une image a été sélectionnée
-    if (!selectionFichier.files[0]) return false;
+  // Vérifiez que le titre n'est pas vide
+  if (titre.value.trim() === "") return false;
 
-    return true; // Tous les champs sont remplis
+  // Vérifiez que la catégorie est sélectionnée
+  if (categorie.value === "Champs-selection") return false;
+
+  // Vérifiez qu'une image a été sélectionnée
+  if (!selectionFichier.files[0]) return false;
+
+  return true; // Tous les champs sont remplis
 }
 
 // Fonction pour mettre à jour la couleur du bouton en fonction de la validité du formulaire
 function updateBoutonColor() {
-    if (verifierFormulaire()) {
-        valider.classList.add("bouton-validation-valide");
-    } else {
-        valider.classList.remove("bouton-validation-valide");
-    }
+  if (verifierFormulaire()) {
+    valider.classList.add("bouton-validation-valide");
+  } else {
+    valider.classList.remove("bouton-validation-valide");
+  }
 }
 
 //écouteurs d'événements pour vérifier la validité du formulaire chaque fois qu'une valeur change
@@ -645,5 +649,4 @@ titre.addEventListener('input', updateBoutonColor);
 categorie.addEventListener('change', updateBoutonColor);
 selectionFichier.addEventListener('change', updateBoutonColor);
 
-// Initialisation: vérifier immédiatement au chargement de la page (au cas où des valeurs seraient préremplies)
 updateBoutonColor();
