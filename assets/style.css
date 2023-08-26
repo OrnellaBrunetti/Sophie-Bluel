@@ -613,13 +613,9 @@ body.modal-open {
 
 .miniature-row .miniature {
   width: calc(20% - 10px);
-  /* Ajustez la largeur selon vos besoins (5 miniatures par rangée) */
   height: 100px;
-  /* Ajustez la hauteur selon vos besoins */
   object-fit: cover;
-  /* Pour éviter les déformations de l'image */
   margin: 0;
-  /* Ajustez l'espace entre les miniatures */
   cursor: pointer;
 }
 
@@ -712,7 +708,6 @@ body.modal-open {
 
 .modal-open #modale2 {
   display: flex;
-  /* Affiche la modale lorsque la modale 2 est ouverte */
   z-index: 9999;
   /* Place la modale 2 au-dessus de tout le reste */
 }
@@ -754,22 +749,16 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  /* Centrage horizontal */
   background-color: #E8F1F6;
-  /* Fond bleu clair */
   width: 390px;
   height: 170px;
   border-radius: 3px;
   align-items: center;
   overflow: hidden;
   max-width: 420px;
-  /* Largeur maximale du conteneur */
   text-align: center;
-  /* Centre le contenu à l'intérieur du conteneur */
   padding: 20px;
-  /* Espacement autour du contenu */
   box-sizing: border-box;
-  /* Inclut les bordures dans les dimensions */
   justify-content: center;
 }
 
