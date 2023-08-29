@@ -79,7 +79,7 @@ function createFilterButton(name, id, isActive = false) {
   return button;
 }
 
-// Fonction pour générer les boutons de filtre
+// Fonction pour générer les boutons de filtre (sinon fonction filtrage inactive)
 function generateFilterButtons(categories) {
   const filterButtonsContainer = document.querySelector(".filter-buttons");
   filterButtonsContainer.innerHTML = ""; // Réinitialisation des boutons existants
@@ -127,6 +127,7 @@ function filterWorks(categoryId) {
 loadWorks();
 loadCategories();
 
+/// EDIT MODE ///
 
 // Vérification de la connexion et mise à jour de l'affichage
 function checkLoggedInUser() {
@@ -188,43 +189,7 @@ checkLoggedInUser();
 // Sélection de l'élément de superposition des modales
 const overlay = document.querySelector(".modales");
 
-// Fonction pour supprimer un travail
-function supprimerTravail(workId) {
-  const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer ce travail ?");
 
-  if (confirmDelete) {
-    fetch(apiUrl + "works/" + workId, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => {
-        // Vérification de la réponse de l'API pour voir si la suppression a réussi (HTTP 2xx)
-        // Sinon, lève une erreur avec le message "Non autorisé : vérifiez votre jeton d'authentification."
-        if (!response.ok) {
-          throw new Error("Non autorisé : vérifiez votre jeton d'authentification.");
-        }
-      })
-      .then(() => {
-        console.log("Travail supprimé avec succès");
-
-        // Mettre à jour la liste des travaux après la suppression
-        loadWorks();
-        removeWorkInModal(workId); // Retirer le travail de la modale
-      })
-      .catch((error) => {
-        const errorDiv = document.querySelector(".error-message");
-        errorDiv.innerText = error.message; // Afficher le message d'erreur en cas d'échec
-      });
-  }
-}
-
-// Fonction pour supprimer visuellement un travail de la modale
-function removeWorkInModal(workId) {
-  const workToRemove = document.getElementById("work-miniature-" + workId);
-  workToRemove.remove(); // Suppression de l'élément visuel du travail
-}
 
 // Fonction pour charger les miniatures des travaux dans la modale
 function loadWorksInModal(works) {
@@ -421,8 +386,83 @@ function resetVisualElements() {
   valider.classList.remove("bouton-validation-valide");
 }
 
+////    SUPPRIMER UN TRAVAIL    /////
+
+// Fonction pour supprimer un travail
+function supprimerTravail(workId) {
+  const confirmDelete = window.confirm("Êtes-vous sûr de vouloir supprimer ce travail ?");
+
+  if (confirmDelete) {
+    fetch(apiUrl + "works/" + workId, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        // Vérification de la réponse de l'API pour voir si la suppression a réussi (HTTP 2xx)
+        // Sinon, lève une erreur avec le message "Non autorisé : vérifiez votre jeton d'authentification."
+        if (!response.ok) {
+          throw new Error("Non autorisé : vérifiez votre jeton d'authentification.");
+        }
+      })
+      .then(() => {
+        console.log("Travail supprimé avec succès");
+
+        // Mettre à jour la liste des travaux après la suppression
+        loadWorks();
+        removeWorkInModal(workId); // Retirer le travail de la modale
+      })
+      .catch((error) => {
+        const errorDiv = document.querySelector(".error-message");
+        errorDiv.innerText = error.message; // Afficher le message d'erreur en cas d'échec
+      });
+  }
+}
+
+// Fonction pour supprimer visuellement un travail de la modale
+function removeWorkInModal(workId) {
+  const workToRemove = document.getElementById("work-miniature-" + workId);
+  workToRemove.remove(); // Suppression de l'élément visuel du travail
+}
+
 
 ////     AJOUTER UN TRAVAIL     ////
+
+// Tableau des catégories contenant des objets avec les propriétés 'id' et 'name' pour chaque catégorie
+const categories = [
+  { id: "Champs-selection", name: "" }, // Catégorie vide pour la première option par défaut
+  { id: 1, name: "Objets" },             // Catégorie pour les objets
+  { id: 2, name: "Appartements" },       // Catégorie pour les appartements
+  { id: 3, name: "Hotel & Restaurants" } // Catégorie pour les hôtels et restaurants
+];
+
+//Fonction pour générer dynamiquement les options de catégories et les ajouter au menu déroulant des catégories
+function generateCategoriesOptions() {
+  // Récupération de l'élément select du formulaire à l'aide de son ID
+  const listeCategories = document.getElementById("liste-categories");
+  
+  // Boucle sur chaque catégorie du tableau categories
+  categories.forEach(category => {
+    // Création d'un nouvel élément option pour le menu déroulant
+    const option = document.createElement("option");
+    
+    // Définition de la valeur de l'option basée sur l'id de la catégorie
+    option.value = category.id;
+    
+    // Ajout du nom de la catégorie comme texte visible pour l'option
+    option.innerText = category.name;
+    
+    // Ajout de l'élément option au menu déroulant des catégories
+    listeCategories.appendChild(option);
+  });
+}
+
+// Lorsque le DOM est complètement chargé, la fonction generateCategoriesOptions est appelée
+// pour remplir dynamiquement le menu déroulant avec les catégories.
+document.addEventListener("DOMContentLoaded", function() {
+  generateCategoriesOptions();
+});
 
 // Prévisualisation de l'image sélectionnée
 const valider = document.getElementById("valider-modale2");
@@ -444,7 +484,7 @@ function previewPicture() {
     prevImage.classList.add("imagePrevisualise");
     const selectionFichier = e.target.files[0]; // Accéder au premier élément du FileList
 
-    const urlObjet = URL.createObjectURL(selectionFichier);
+    const urlObjet = URL.createObjectURL(selectionFichier); // une méthode qui crée une URL DOMString représentant le fichier fourni
 
     // Création d'une nouvelle image pour obtenir les dimensions d'origine
     const tempImage = new Image();
@@ -570,7 +610,7 @@ function validationFormulaire() {
       form.reset(); // Réinitialiser le formulaire
       resetVisualElements();  // Réinitialiser les éléments visuels
 
-      loadWorks();
+      loadWorks(); // generate(works) car on a deja le data
       fermerModale2(); // Fermez la modale 2
       ouvrirModale1(); // Ouvrez la modale 1 pour montrer les travaux mis à jour
     })
@@ -593,11 +633,15 @@ valider.addEventListener("click", (e) => {
 // Stop propagation du click pour charger une image
 
 const contenuModale = document.getElementById('contenu-modale');
+// Vérifier si 'contenuModale' existe
 if (contenuModale) {
   contenuModale.addEventListener('click', function (event) {
+    // Empêcher la propagation de l'événement 'click' pour qu'il ne déclenche pas d'autres écouteurs
+    // au niveau supérieur du DOM
     event.stopPropagation();
   });
 }
+// Attacher un écouteur d'événement "mousedown" à l'ensemble du document
 document.addEventListener('mousedown', function (event) {
   const modal1 = document.getElementById('modal1');
   const modal2 = document.getElementById('modale2');
